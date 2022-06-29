@@ -32,36 +32,57 @@ namespace ConsoleApp4
 			string[] fi;
 			string[] fishE;
 			List<Fish> f = new List<Fish>();
-			string vvod = "";
 			int x = 1;
 			Random r = new Random(DateTime.Now.Millisecond);
 			public Game()
 			{
 				point = 0;
 				fi = new string[] { "s", "m", "b", " " };
-				fishE = new string[] { "M", "B", " " };
+				fishE = new string[] { "M", "B", "X" };
 				for(int i = 0; i < 4; i++)
                 {
-					f.Add(new Fish(fi[r.Next(fi.Length)]));
+					f.Add(new Fish(fi[i]));
 				}
 			}
 
-			public void PlaceFish()
+			public void Level1()
 			{
-				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
-				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
-				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
-				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
-				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
+				Console.WriteLine("Level 1:" + "\t\tPoints - " + point);
+				Console.WriteLine(" | " + f[0].name + " \t| " + " \t| " + f[1].name + " \t| " + " \t| " + f[2].name);
+				Console.WriteLine();
+
 			}
+			public void Level2()
+            {
+				Console.WriteLine("Level 2:" + "\t\tPoints - " + point);
+				Console.WriteLine(" | " + f[1].name + " \t| " + " \t| " + " \t| "   + f[2].name + " \t| " );
+				Console.WriteLine(" | " + " \t| "   + " \t| " + " \t| " + f[0].name + " \t| ");
+				Console.WriteLine();
+
+			}
+			public void Eat()
+            {
+				if(f[0].size <= 2)
+                {
+					if (f[0].name == "sm")
+					{
+						f[0].name = fishE[0];
+					}
+				}
+				else
+                {
+					f[0].name = fishE[3];
+                }
 			
+            }
 		}
 		static void Main(string[] args)
 		{
 			string vvod = "";
 			int x = 1;
 			Game game = new Game();
-			game.PlaceFish();
+			game.Level1();
+			game.Level2();
 
 			List<Fish> MyFish;
 			while (x != 0)
