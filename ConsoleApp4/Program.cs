@@ -14,6 +14,8 @@ namespace ConsoleApp4
 			int point;
 			string[] fish;
 
+			string vvod = "";
+			int x = 1;
 
 			public Game()
             {
