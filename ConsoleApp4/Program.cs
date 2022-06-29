@@ -8,25 +8,28 @@ namespace ConsoleApp4
 {
 
 	class Program
-	{
+    {
+        class Game
+        {
+			int point;
+			string[] fish;
 
-		static void Main(string[] args)
+
+			public Game()
+            {
+				point = 0;
+				fish = new string[] { "small", "medium", "big" };
+            }
+			public void PlaceFish()
+            {
+				Random r = new Random();
+				Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | " );
+            }
+		}
+
+        static void Main(string[] args)
 		{
 
-			Console.WriteLine("Hello!");
-			Console.WriteLine("World");
-
-			Console.WriteLine("Update 19:45");
-
-			Console.WriteLine("Update 1.2 19:54");
-
-
-			Console.WriteLine("___________________");
-
-			string str = "";
-
-			Console.WriteLine("Write str__ ");
-			str = Console.ReadLine();
 		}
 	}
 
