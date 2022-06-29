@@ -8,32 +8,36 @@ namespace ConsoleApp4
 {
 
 	class Fish
-    {
+	{
+		public Fish(string f)
+        {
+			fish = f;
+        }
 		string fish { get; set; }
 		int size { get; set; }
 
-    }
+	}
 	class Program
 	{
 		class Game
 		{
 			int point;
-			string[] fish;
+			string[] fi;
 			string[] fishE;
-
+			List<Fish> f = new List<Fish>();
 			string vvod = "";
 			int x = 1;
-
+			Random r = new Random(DateTime.Now.Millisecond);
 			public Game()
 			{
 				point = 0;
-				fish = new string[] { "s", "m", "b", " "};
+				fi = new string[] { "s", "m", "b", " " };
 				fishE = new string[] { "M", "B", " " };
+				f.Add(new Fish(fi[r.Next(fi.Length)]));
 			}
 
 			public void PlaceFish()
 			{
-				Random r = new Random(DateTime.Now.Millisecond);
 				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
 				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
 				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
@@ -41,12 +45,6 @@ namespace ConsoleApp4
 				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
 
 			}
-
-				Random r = new Random();
-			
-				Console.WriteLine(fish[r.Next(fish.Length)] + " | " + fish[r.Next(fish.Length)] + " | ");
-			}
-			//Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | ");
 		}
 		static void Main(string[] args)
 		{
@@ -62,7 +60,7 @@ namespace ConsoleApp4
 				vvod = Console.ReadLine();
 				x = Convert.ToInt32(vvod);
 
-			
+
 
 
 				if (x == 0)
@@ -81,11 +79,6 @@ namespace ConsoleApp4
 			}
 		}
 	}
-                }
-            }
-        }
-
-	
 }
 
 
