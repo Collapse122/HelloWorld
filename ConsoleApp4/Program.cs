@@ -7,6 +7,12 @@ using System.Windows.Forms;
 namespace ConsoleApp4
 {
 
+	class Fish
+    {
+		string fish { get; set; }
+		int size { get; set; }
+
+    }
 	class Program
 	{
 		class Game
@@ -24,6 +30,7 @@ namespace ConsoleApp4
 				fish = new string[] { "s", "m", "b", " "};
 				fishE = new string[] { "M", "B", " " };
 			}
+
 			public void PlaceFish()
 			{
 				Random r = new Random(DateTime.Now.Millisecond);
@@ -35,8 +42,12 @@ namespace ConsoleApp4
 
 			}
 
+				Random r = new Random();
+			
+				Console.WriteLine(fish[r.Next(fish.Length)] + " | " + fish[r.Next(fish.Length)] + " | ");
+			}
+			//Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | ");
 		}
-
 		static void Main(string[] args)
 		{
 			string vvod = "";
@@ -44,28 +55,40 @@ namespace ConsoleApp4
 			Game game = new Game();
 			game.PlaceFish();
 
-            while (x != 0)
-            {
-                Console.WriteLine("0 - Exit");
+			while (x != 0)
+			{
+				Console.WriteLine("0 - Exit");
+				Console.Write("Write menu__ ");
+				vvod = Console.ReadLine();
+				x = Convert.ToInt32(vvod);
 
-                if (x == 0)
-                {
-                    Console.WriteLine("Write 1 - Back | Write 0 - Exit");
-                    vvod = Console.ReadLine();
-                    x = Convert.ToInt32(vvod);
-                    if (x == 0)
-                    {
-                        Console.WriteLine("GOODBAYE!");
-                        break;
-                    }
+			
 
 
+				if (x == 0)
+				{
+					Console.WriteLine("Write 1 - Back | Write 0 - Exit");
+					vvod = Console.ReadLine();
+					x = Convert.ToInt32(vvod);
+					if (x == 0)
+					{
+						Console.WriteLine("GOODBAYE!");
+						break;
+					}
+
+
+				}
+			}
+		}
+	}
                 }
             }
         }
 
-
-	}
-
-
+	
 }
+
+
+
+
+
