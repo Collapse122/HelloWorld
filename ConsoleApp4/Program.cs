@@ -9,12 +9,19 @@ namespace ConsoleApp4
 
 	class Fish
 	{
+		public string name;
+		public int size;
+		public Fish() { }
 		public Fish(string f)
         {
-			fish = f;
+			name = f;
         }
-		string fish { get; set; }
-		int size { get; set; }
+		string Fiish
+		{ 
+			get { return name; } 
+			set { name = value; } 
+		}
+		int Size { get { return size; } set { size = value; } }
 
 	}
 	class Program
@@ -33,17 +40,19 @@ namespace ConsoleApp4
 				point = 0;
 				fi = new string[] { "s", "m", "b", " " };
 				fishE = new string[] { "M", "B", " " };
-				f.Add(new Fish(fi[r.Next(fi.Length)]));
+				for(int i = 0; i < 4; i++)
+                {
+					f.Add(new Fish(fi[r.Next(fi.Length)]));
+				}
 			}
 
 			public void PlaceFish()
 			{
-				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
-				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
-				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
-				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
-				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
-
+				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
+				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
+				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
+				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
+				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
 			}
 		}
 		static void Main(string[] args)
