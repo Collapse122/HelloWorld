@@ -17,6 +17,9 @@ namespace ConsoleApp4
 			Console.WriteLine("World");
 
 			Console.WriteLine("Update 19:45");
+
+			Console.WriteLine("Update 1.2 19:54");
+
 		}
 	}
 
