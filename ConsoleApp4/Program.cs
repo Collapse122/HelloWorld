@@ -22,6 +22,11 @@ namespace ConsoleApp4
 
 
 			Console.WriteLine("___________________");
+
+			string str = "";
+
+			Console.WriteLine("Write str__ ");
+			str = Console.ReadLine();
 		}
 	}
 
