@@ -13,6 +13,7 @@ namespace ConsoleApp4
 		{
 			int point;
 			string[] fish;
+			string[] fishE;
 
 			string vvod = "";
 			int x = 1;
@@ -20,43 +21,48 @@ namespace ConsoleApp4
 			public Game()
 			{
 				point = 0;
-				fish = new string[] { "small", "medium", "big" };
+				fish = new string[] { "s", "m", "b", " "};
+				fishE = new string[] { "M", "B", " " };
 			}
 			public void PlaceFish()
 			{
-				Random r = new Random();
-				Console.WriteLine(fish[r.Next(fish.Length)] + " | " + fish[r.Next(fish.Length)] + " | ");
+				Random r = new Random(DateTime.Now.Millisecond);
+				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
+				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
+				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
+				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
+				Console.WriteLine(fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)] + " \t| " + fish[r.Next(fish.Length)]);
+
 			}
-				Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | ");
-            }
+
 		}
 
 		static void Main(string[] args)
 		{
 			string vvod = "";
 			int x = 1;
+			Game game = new Game();
+			game.PlaceFish();
 
-			while (x != 0)
-			{
-				Console.WriteLine("0 - Exit");
+            while (x != 0)
+            {
+                Console.WriteLine("0 - Exit");
+
+                if (x == 0)
+                {
+                    Console.WriteLine("Write 1 - Back | Write 0 - Exit");
+                    vvod = Console.ReadLine();
+                    x = Convert.ToInt32(vvod);
+                    if (x == 0)
+                    {
+                        Console.WriteLine("GOODBAYE!");
+                        break;
+                    }
 
 
-
-				if (x == 0)
-				{
-					Console.WriteLine("Write 1 - Back | Write 0 - Exit");
-					vvod = Console.ReadLine();
-					x = Convert.ToInt32(vvod);
-					if (x == 0)
-					{
-						Console.WriteLine("GOODBAYE!");
-						break;
-					}
-
-
-				}
-			}
-		}
+                }
+            }
+        }
 
 
 	}
