@@ -13,20 +13,31 @@ namespace ConsoleApp4
 		static void Main(string[] args)
 		{
 
-			Console.WriteLine("Hello!");
-			Console.WriteLine("World");
+			string vvod = "";
+			int x = 1;
 
-			Console.WriteLine("Update 19:45");
+			while(x!=0)
+            {
+				Console.WriteLine("0 - Exit");
+				
 
-			Console.WriteLine("Update 1.2 19:54");
 
+				if(x == 0)
+                {
+					Console.WriteLine("Write 1 - Back | Write 0 - Exit");
+					vvod = Console.ReadLine();
+					x = Convert.ToInt32(vvod);
+					if(x == 0)
+                    {
+						Console.WriteLine("GOODBAYE!");
+						break;
+                    }
+                    
 
-			Console.WriteLine("___________________");
+                }
+            }
+			
 
-			string str = "";
-
-			Console.WriteLine("Write str__ ");
-			str = Console.ReadLine();
 		}
 	}
 
