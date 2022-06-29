@@ -8,9 +8,9 @@ namespace ConsoleApp4
 {
 
 	class Program
-    {
-        class Game
-        {
+	{
+		class Game
+		{
 			int point;
 			string[] fish;
 
@@ -18,23 +18,48 @@ namespace ConsoleApp4
 			int x = 1;
 
 			public Game()
-            {
+			{
 				point = 0;
 				fish = new string[] { "small", "medium", "big" };
-            }
+			}
 			public void PlaceFish()
-            {
+			{
 				Random r = new Random();
+				Console.WriteLine(fish[r.Next(fish.Length)] + " | " + fish[r.Next(fish.Length)] + " | ");
+			}
 				Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | ");
             }
 		}
 
-        static void Main(string[] args)
+		static void Main(string[] args)
 		{
+			string vvod = "";
+			int x = 1;
 
+			while (x != 0)
+			{
+				Console.WriteLine("0 - Exit");
+
+
+
+				if (x == 0)
+				{
+					Console.WriteLine("Write 1 - Back | Write 0 - Exit");
+					vvod = Console.ReadLine();
+					x = Convert.ToInt32(vvod);
+					if (x == 0)
+					{
+						Console.WriteLine("GOODBAYE!");
+						break;
+					}
+
+
+				}
+			}
 		}
+
+
 	}
 
 
 }
-
