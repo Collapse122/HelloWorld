@@ -25,7 +25,7 @@ namespace ConsoleApp4
 			public void PlaceFish()
             {
 				Random r = new Random();
-				Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | " );
+				Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | ");
             }
 		}
 
