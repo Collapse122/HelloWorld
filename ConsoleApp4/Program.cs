@@ -35,13 +35,14 @@ namespace ConsoleApp4
 			
 				Console.WriteLine(fish[r.Next(fish.Length)] + " | " + fish[r.Next(fish.Length)] + " | ");
 			}
-			//Console.WriteLine(fish[r.Next(fish.Length)]+ " | " + fish[r.Next(fish.Length)] + " | ");
+			
 		}
 		static void Main(string[] args)
 		{
 			string vvod = "";
 			int x = 1;
 
+			List<Fish> MyFish;
 			while (x != 0)
 			{
 				Console.WriteLine("0 - Exit");
