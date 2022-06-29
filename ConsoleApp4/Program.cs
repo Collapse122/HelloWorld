@@ -54,6 +54,7 @@ namespace ConsoleApp4
 				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
 				Console.WriteLine(" | " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name + " \t| " + f[r.Next(f.Count)].name);
 			}
+			
 		}
 		static void Main(string[] args)
 		{
@@ -62,6 +63,7 @@ namespace ConsoleApp4
 			Game game = new Game();
 			game.PlaceFish();
 
+			List<Fish> MyFish;
 			while (x != 0)
 			{
 				Console.WriteLine("0 - Exit");
