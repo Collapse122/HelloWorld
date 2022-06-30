@@ -33,15 +33,9 @@ namespace ConsoleApp4
 			string[] fishE;
 			List<Fish> f = new List<Fish>();
 
-			public int levelup
-			{
-				
-                get { return levelup; }
-				set { levelup = value; }
+			public int levelup {get;set;}
+			
 
-
-
-            }
 			
 
 			int x = 1;
@@ -111,7 +105,7 @@ namespace ConsoleApp4
                             }
                         }
                     }
-					levelup += temp;
+					levelup += temp+1;
 					Console.WriteLine("Fish eat");
                 }
 
@@ -148,7 +142,7 @@ namespace ConsoleApp4
 						{
 							game.Level1();
 						}
-						else if(game.levelup < 6) // Можна додати ще кілька рівнів  !!
+						else if(game.levelup < 6 && game.levelup>=3) // Можна додати ще кілька рівнів  !!
                         {
 							game.Level2();
                         }
