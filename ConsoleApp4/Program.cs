@@ -32,6 +32,18 @@ namespace ConsoleApp4
 			string[] fi;
 			string[] fishE;
 			List<Fish> f = new List<Fish>();
+
+			public int levelup
+			{
+				
+                get { return levelup; }
+				set { levelup = value; }
+
+
+
+            }
+			
+
 			int x = 1;
 			Random r = new Random(DateTime.Now.Millisecond);
 			public Game()
@@ -60,21 +72,50 @@ namespace ConsoleApp4
 				Console.WriteLine();
 
 			}
-			public void Eat()
+			public void Eat(int num1,int num2)
             {
-				if(f[0].size <= 2)
+				int temp = 0;
+				if (f[num1].name == f[num2].name)
                 {
-					if (f[0].name == "sm")
-					{
-						f[0].name = fishE[0];
-					}
-				}
-				else
-                {
-					f[0].name = fishE[3];
+					Console.WriteLine("No Fish eat!");
                 }
-			
-            }
+				else if (f[num1].name == "s" )
+                {
+					Console.WriteLine("No Fish eat!");
+				}
+				else if (f[num1].name == "m" && f[num2].name == "b")
+                {
+					Console.WriteLine("No Fish eat!");
+				}
+				else if (f[num1].name == " ")
+                {
+					Console.WriteLine("No Fish eat!");
+				}
+				else if (f[num2].name == " ")
+				{
+					Console.WriteLine("No Fish eat!");
+				}
+                else
+                {
+					f[num1].size++;
+					f[num2].name = " ";
+                    if (f[num1].size == 2)
+                    {
+						f[num1].name = " ";
+						
+                        for(int i = 0;i<3;i++)
+                        {
+                            if (f[i].name == " ")
+                            {
+								temp++;
+                            }
+                        }
+                    }
+					levelup += temp;
+					Console.WriteLine("Fish eat");
+                }
+
+			}
 		}
 		static void Main(string[] args)
 		{
@@ -82,20 +123,55 @@ namespace ConsoleApp4
 			int x = 1;
 			Game game = new Game();
 			game.Level1();
-			game.Level2();
+			//game.Level2();
 
 			List<Fish> MyFish;
 			while (x != 0)
 			{
 				Console.WriteLine("0 - Exit");
+				Console.WriteLine("1 - Start Game");
 				Console.Write("Write menu__ ");
 				vvod = Console.ReadLine();
 				x = Convert.ToInt32(vvod);
 
 
 
+				if(x == 1)
+                {
 
-				if (x == 0)
+					
+					while (x != 5)
+					{
+
+						int c = 0;
+						if (game.levelup < 3)
+						{
+							game.Level1();
+						}
+						else if(game.levelup < 6) // Можна додати ще кілька рівнів  !!
+                        {
+							game.Level2();
+                        }
+						
+						Console.WriteLine("5 - EXIT");
+						Console.WriteLine("0  -  1 -  2");
+						Console.WriteLine("Choose a fish that will eat");
+						vvod = Console.ReadLine();
+						x = Convert.ToInt32(vvod);
+						Console.WriteLine("Сhoose a fish that will eat");
+						vvod = Console.ReadLine();
+						c = Convert.ToInt32(vvod);
+						game.Eat(x, c);
+						
+
+						
+
+
+					}
+
+					x = 0;
+                }
+				else if (x == 0)
 				{
 					Console.WriteLine("Write 1 - Back | Write 0 - Exit");
 					vvod = Console.ReadLine();
@@ -108,6 +184,11 @@ namespace ConsoleApp4
 
 
 				}
+				else
+                {
+					Console.WriteLine("ERROR!");
+					x = 1;
+                }
 			}
 		}
 	}
