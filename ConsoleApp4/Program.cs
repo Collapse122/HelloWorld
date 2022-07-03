@@ -24,15 +24,19 @@ namespace ConsoleApp4
 		int Size { get { return size; } set { size = value; } }
 
 	}
+
+	
+
 	class Program
 	{
+	
 		class Game
 		{
 			int point;
 			string[] fi;
 			string[] fishE;
 			List<Fish> f = new List<Fish>();
-			public string[] level1 = new string[5]; 
+			public string[] level1 = new string[25]; 
 			public int levelup {get;set;}
 
 			int x = 1;
@@ -42,36 +46,71 @@ namespace ConsoleApp4
 				point = 0;
 				fi = new string[] { "s", "m", "b", " " };
 				fishE = new string[] { "M", "B", "X" };
-				for(int i = 0; i < 4; i++)
+				for(int i = 0; i < 25; i++)
                 {
-					f.Add(new Fish(fi[i]));
+					//f.Add(new Fish(fi[i]));
+					f.Add(new Fish(fi[r.Next(4)]));
 				}
 		    }
+			
 			public void PrepareLevel1()
             {
-				level1[0] = f[0].name;
-				level1[1] = "\t";
-				level1[2] = f[1].name;
-				level1[3] = "\t";
-				level1[4] = f[2].name;
-			}
+				for(int i = 0;i<25;i++)
+                {
+					level1[i] = f[i].name;
+                }
+            }
 			public void Level1()
 			{
+				Console.WriteLine("Введіть номер рибки від 1 - 5");
 				Console.WriteLine("Рівень 1:" + "\t\tОчки - " + point);
 				Console.WriteLine(" | " + level1[0] + " \t| " + level1[1] + " | " + level1[2]  + " \t| " + level1[3] + " | " + level1[4] + "    | ");
 				Console.WriteLine();
 			}
 			public void Level2()
             {
+				Console.WriteLine("Введіть номер рибки від 1 - 10");
 				Console.WriteLine("Рівень 2:" + "\t\tОчки - " + point);
-				Console.WriteLine(" | " + f[1].name + " \t| " + " \t| " + " \t| "   + f[2].name + " \t| " );
-				Console.WriteLine(" | " + " \t| "   + " \t| " + " \t| " + f[0].name + " \t| ");
+				Console.WriteLine(" | " + level1[0] + " \t| " + level1[1] + " | " + level1[2] + " \t| " + level1[3] + " | " + level1[4] + "    | ");
+				Console.WriteLine(" | " + level1[5] + " \t| " + level1[6] + " | " + level1[7] + " \t| " + level1[8] + " | " + level1[9] + "    | ");
 				Console.WriteLine();
 
 			}
+			public void Level3()
+            {
+				Console.WriteLine("Введіть номер рибки від 1 - 15");
+				Console.WriteLine("Рівень 3:" + "\t\tОчки - " + point);
+				Console.WriteLine(" | " + level1[0] + " \t| " + level1[1] + " | " + level1[2] + " \t| " + level1[3] + " | " + level1[4] + "    | ");
+				Console.WriteLine(" | " + level1[5] + " \t| " + level1[6] + " | " + level1[7] + " \t| " + level1[8] + " | " + level1[9] + "    | ");
+				Console.WriteLine(" | " + level1[10] + " \t| " + level1[11] + " | " + level1[12] + " \t| " + level1[13] + " | " + level1[14] + "    | ");
+				Console.WriteLine();
+			}
+			public void Level4()
+            {
+				Console.WriteLine("Введіть номер рибки від 1 - 20");
+				Console.WriteLine("Рівень 4:" + "\t\tОчки - " + point);
+				Console.WriteLine(" | " + level1[0] + " \t| " + level1[1] + " | " + level1[2] + " \t| " + level1[3] + " | " + level1[4] + "    | ");
+				Console.WriteLine(" | " + level1[5] + " \t| " + level1[6] + " | " + level1[7] + " \t| " + level1[8] + " | " + level1[9] + "    | ");
+				Console.WriteLine(" | " + level1[10] + " \t| " + level1[11] + " | " + level1[12] + " \t| " + level1[13] + " | " + level1[14] + "    | ");
+				Console.WriteLine(" | " + level1[15] + " \t| " + level1[16] + " | " + level1[17] + " \t| " + level1[18] + " | " + level1[19] + "    | ");
+				Console.WriteLine();
+			}
+			public void Level5()
+			{
+				Console.WriteLine("Введіть номер рибки від 1 - 25");
+				Console.WriteLine("Рівень 4:" + "\t\tОчки - " + point);
+				Console.WriteLine(" | " + level1[0] + " \t| " + level1[1] + " | " + level1[2] + " \t| " + level1[3] + " | " + level1[4] + "    | ");
+				Console.WriteLine(" | " + level1[5] + " \t| " + level1[6] + " | " + level1[7] + " \t| " + level1[8] + " | " + level1[9] + "    | ");
+				Console.WriteLine(" | " + level1[10] + " \t| " + level1[11] + " | " + level1[12] + " \t| " + level1[13] + " | " + level1[14] + "    | ");
+				Console.WriteLine(" | " + level1[15] + " \t| " + level1[16] + " | " + level1[17] + " \t| " + level1[18] + " | " + level1[19] + "    | ");
+				Console.WriteLine(" | " + level1[20] + " \t| " + level1[21] + " | " + level1[22] + " \t| " + level1[23] + " | " + level1[24] + "    | ");
+				Console.WriteLine();
+			}
 			public void Eat(int num1,int num2)
             {
+
 				int temp = 0;
+
 				if (level1[num1] == level1[num2])
                 {
 					Console.WriteLine("Не можу з'їсти цю рибку, одинаковий розмір!");
@@ -103,6 +142,11 @@ namespace ConsoleApp4
 						level1[num1] = fishE[1];
 					}
 					level1[num2] = " ";
+                    if (f[num1].size == 2)
+                    {
+						level1[num1] = " ";
+                    }
+					point++;
 					Console.WriteLine("\tРибка " + level1[num1] + " " + "поїла ");
                 }
 
@@ -110,6 +154,10 @@ namespace ConsoleApp4
 		}
 		static void Main(string[] args)
 		{
+
+
+			Console.OutputEncoding = UTF8Encoding.UTF8;
+
 			string vvod = "";
 			int x = 1;
 			Game game = new Game();
@@ -146,11 +194,11 @@ namespace ConsoleApp4
 							do
 							{
 								Console.WriteLine("Хід - " + turn);
-								Console.WriteLine("6 - Вихід з гри");
+								Console.WriteLine("0 - Вихід з гри");
 								Console.WriteLine("Виберіть рибку яка буде їсти (оберіть клітинку на якій вона стоїть)");
 								vvod = Console.ReadLine();
 								ribka1 = Convert.ToInt32(vvod);
-								if (vvod == "6")
+								if (vvod == "0")
 								{
 									break;
 								}
@@ -169,21 +217,151 @@ namespace ConsoleApp4
 								
 							} while (turn < 5);
 
-						}
-						else if(choice_level == 2) // Можна додати ще кілька рівнів  !!
-                        {
-							game.Level2();
 
-							Console.WriteLine("5 - Вихід з гри");
-							Console.WriteLine("Виберіть рибку яка буде їсти (оберіть клітинку на якій вона стоїть)");
-							vvod = Console.ReadLine();
-							ribka1 = Convert.ToInt32(vvod);
-							Console.WriteLine("Виберіть рибку яку з'їдять(оберіть клітинку на якій вона стоїть)");
-							vvod = Console.ReadLine();
-							ribka2 = Convert.ToInt32(vvod);
-							game.Eat(ribka1 - 1,ribka2 - 1);
 						}
-						
+						else if (choice_level == 2)
+						{
+							game.PrepareLevel1();
+							game.Level2();
+							int turn = 0;
+							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
+							do
+							{
+								Console.WriteLine("Хід - " + turn);
+								Console.WriteLine("0 - Вихід з гри");
+								Console.WriteLine("Виберіть рибку яка буде їсти (оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka1 = Convert.ToInt32(vvod);
+								if (vvod == "0")
+								{
+									break;
+								}
+								Console.WriteLine("Виберіть рибку яку з'їдять(оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka2 = Convert.ToInt32(vvod);
+
+								game.Eat(ribka1 - 1, ribka2 - 1);
+								turn++;
+								game.Level2();
+								if (game.level1.Equals(lvl1))
+								{
+									Console.WriteLine("Рівень пройдено!");
+									break;
+								}
+
+							} while (turn < 5);
+
+
+						}
+						else if (choice_level == 3)
+						{
+							game.PrepareLevel1();
+							game.Level3();
+							int turn = 0;
+							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
+							do
+							{
+								Console.WriteLine("Хід - " + turn);
+								Console.WriteLine("0 - Вихід з гри");
+								Console.WriteLine("Виберіть рибку яка буде їсти (оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka1 = Convert.ToInt32(vvod);
+								if (vvod == "0")
+								{
+									break;
+								}
+								Console.WriteLine("Виберіть рибку яку з'їдять(оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka2 = Convert.ToInt32(vvod);
+
+								game.Eat(ribka1 - 1, ribka2 - 1);
+								turn++;
+								game.Level3();
+								if (game.level1.Equals(lvl1))
+								{
+									Console.WriteLine("Рівень пройдено!");
+									break;
+								}
+
+							} while (turn < 5);
+
+
+						}
+						else if (choice_level == 4)
+						{
+							game.PrepareLevel1();
+							game.Level4();
+							int turn = 0;
+							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
+							do
+							{
+								Console.WriteLine("Хід - " + turn);
+								Console.WriteLine("0 - Вихід з гри");
+								Console.WriteLine("Виберіть рибку яка буде їсти (оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka1 = Convert.ToInt32(vvod);
+								if (vvod == "0")
+								{
+									break;
+								}
+								Console.WriteLine("Виберіть рибку яку з'їдять(оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka2 = Convert.ToInt32(vvod);
+
+								game.Eat(ribka1 - 1, ribka2 - 1);
+								turn++;
+								game.Level4();
+								if (game.level1.Equals(lvl1))
+								{
+									Console.WriteLine("Рівень пройдено!");
+									break;
+								}
+
+							} while (turn < 5);
+
+
+						}
+						else if (choice_level == 5)
+						{
+							game.PrepareLevel1();
+							game.Level5();
+							int turn = 0;
+							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
+							do
+							{
+								Console.WriteLine("Хід - " + turn);
+								Console.WriteLine("0 - Вихід з гри");
+								Console.WriteLine("Виберіть рибку яка буде їсти (оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka1 = Convert.ToInt32(vvod);
+								if (vvod == "0")
+								{
+									break;
+								}
+								Console.WriteLine("Виберіть рибку яку з'їдять(оберіть клітинку на якій вона стоїть)");
+								vvod = Console.ReadLine();
+								ribka2 = Convert.ToInt32(vvod);
+
+								game.Eat(ribka1 - 1, ribka2 - 1);
+								turn++;
+								game.Level5();
+								if (game.level1.Equals(lvl1))
+								{
+									Console.WriteLine("Рівень пройдено!");
+									break;
+								}
+
+							} while (turn < 5);
+
+
+						}
+                        else
+                        {
+							Console.WriteLine("ERROR!!!");
+							break;
+                        }
+				
+
 					}
 
 					x = 0;
@@ -199,10 +377,6 @@ namespace ConsoleApp4
 						break;
 					}
 				}
-				//else if(x == 1)
-    //            {
-				//	game.Level1();
-				//}
 				else
                 {
 					Console.WriteLine("Помилка вибору меню!");
