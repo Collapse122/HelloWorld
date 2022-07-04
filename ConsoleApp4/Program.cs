@@ -35,7 +35,6 @@ namespace ConsoleApp4
 			public string[] level1 = new string[5]; 
 			public int levelup {get;set;}
 
-			int x = 1;
 			Random r = new Random(DateTime.Now.Millisecond);
 			public Game()
 			{
@@ -69,9 +68,8 @@ namespace ConsoleApp4
 				Console.WriteLine();
 
 			}
-			public void Eat(int num1,int num2)
+			public void Eat_Level1(int num1,int num2)
             {
-				int temp = 0;
 				if (level1[num1] == level1[num2])
                 {
 					Console.WriteLine("Не можу з'їсти цю рибку, одинаковий розмір!");
@@ -104,13 +102,14 @@ namespace ConsoleApp4
 					}
 					level1[num2] = " ";
 					Console.WriteLine("\tРибка " + level1[num1] + " " + "поїла ");
+					point += 30;
                 }
 
 			}
 		}
 		static void Main(string[] args)
 		{
-			string vvod = "";
+			string vvod;
 			int x = 1;
 			Game game = new Game();
 			Console.WriteLine("\t\tGame Fish eater");
@@ -158,7 +157,7 @@ namespace ConsoleApp4
 								vvod = Console.ReadLine();
 								ribka2 = Convert.ToInt32(vvod);
 
-								game.Eat(ribka1 - 1, ribka2 - 1);
+								game.Eat_Level1(ribka1 - 1, ribka2 - 1);
 								turn++;
 								game.Level1();
 								if (game.level1.Equals(lvl1))
@@ -181,7 +180,7 @@ namespace ConsoleApp4
 							Console.WriteLine("Виберіть рибку яку з'їдять(оберіть клітинку на якій вона стоїть)");
 							vvod = Console.ReadLine();
 							ribka2 = Convert.ToInt32(vvod);
-							game.Eat(ribka1 - 1,ribka2 - 1);
+							game.Eat_Level2(ribka1 - 1,ribka2 - 1);
 						}
 						
 					}
