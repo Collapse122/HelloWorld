@@ -37,7 +37,6 @@ namespace ConsoleApp4
 			string[] fishE;
 			List<Fish> f = new List<Fish>();
 			public string[] level1 = new string[25]; 
-			public int levelup {get;set;}
 
 			int x = 1;
 			Random r = new Random(DateTime.Now.Millisecond);
@@ -48,14 +47,17 @@ namespace ConsoleApp4
 				fishE = new string[] { "M", "B", "X" };
 				for(int i = 0; i < 25; i++)
                 {
-					//f.Add(new Fish(fi[i]));
 					f.Add(new Fish(fi[r.Next(4)]));
 				}
 		    }
 			
 			public void PrepareLevel1()
             {
-				for(int i = 0;i<25;i++)
+				for(int i = 0; i < 25; i++)
+                {
+					f[i] = new Fish(fi[r.Next(4)]);
+				}
+				for(int i = 0; i < 25; i++)
                 {
 					level1[i] = f[i].name;
                 }
@@ -136,10 +138,12 @@ namespace ConsoleApp4
 					if(level1[num1] == "m")
                     {
 						level1[num1] = fishE[0];
+						point += 2;
 					}
 					else if(level1[num1] == "b")
                     {
 						level1[num1] = fishE[1];
+						point += 5;
 					}
 					level1[num2] = " ";
                     if (f[num1].size == 2)
@@ -148,14 +152,13 @@ namespace ConsoleApp4
                     }
 					point++;
 					Console.WriteLine("\tРибка " + level1[num1] + " " + "поїла ");
-					point += 30;
+					
                 }
 
 			}
 		}
 		static void Main(string[] args)
 		{
-
 
 			Console.OutputEncoding = UTF8Encoding.UTF8;
 
@@ -164,7 +167,6 @@ namespace ConsoleApp4
 			Game game = new Game();
 			Console.WriteLine("\t\tGame Fish eater");
 
-			List<Fish> MyFish;
 			while (x != 0)
 			{
 				Console.WriteLine("\tВиберіть пункт меню ");
@@ -191,7 +193,6 @@ namespace ConsoleApp4
 							game.PrepareLevel1();
 							game.Level1();
 							int turn = 0;
-							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
 							do
 							{
 								Console.WriteLine("Хід - " + turn);
@@ -210,13 +211,8 @@ namespace ConsoleApp4
 								game.Eat(ribka1 - 1, ribka2 - 1);
 								turn++;
 								game.Level1();
-								if (game.level1.Equals(lvl1))
-								{
-									Console.WriteLine("Рівень пройдено!");
-									break;
-								}
 								
-							} while (turn < 5);
+							} while (turn < 10);
 
 
 						}
@@ -225,7 +221,6 @@ namespace ConsoleApp4
 							game.PrepareLevel1();
 							game.Level2();
 							int turn = 0;
-							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
 							do
 							{
 								Console.WriteLine("Хід - " + turn);
@@ -244,13 +239,8 @@ namespace ConsoleApp4
 								game.Eat(ribka1 - 1, ribka2 - 1);
 								turn++;
 								game.Level2();
-								if (game.level1.Equals(lvl1))
-								{
-									Console.WriteLine("Рівень пройдено!");
-									break;
-								}
-
-							} while (turn < 5);
+								
+							} while (turn < 10);
 
 
 						}
@@ -259,7 +249,6 @@ namespace ConsoleApp4
 							game.PrepareLevel1();
 							game.Level3();
 							int turn = 0;
-							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
 							do
 							{
 								Console.WriteLine("Хід - " + turn);
@@ -278,14 +267,8 @@ namespace ConsoleApp4
 								game.Eat(ribka1 - 1, ribka2 - 1);
 								turn++;
 								game.Level3();
-								if (game.level1.Equals(lvl1))
-								{
-									Console.WriteLine("Рівень пройдено!");
-									break;
-								}
-
-							} while (turn < 5);
-
+								
+							} while (turn < 10);
 
 						}
 						else if (choice_level == 4)
@@ -293,7 +276,7 @@ namespace ConsoleApp4
 							game.PrepareLevel1();
 							game.Level4();
 							int turn = 0;
-							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
+							
 							do
 							{
 								Console.WriteLine("Хід - " + turn);
@@ -312,14 +295,8 @@ namespace ConsoleApp4
 								game.Eat(ribka1 - 1, ribka2 - 1);
 								turn++;
 								game.Level4();
-								if (game.level1.Equals(lvl1))
-								{
-									Console.WriteLine("Рівень пройдено!");
-									break;
-								}
 
-							} while (turn < 5);
-
+							} while (turn < 10);
 
 						}
 						else if (choice_level == 5)
@@ -327,7 +304,6 @@ namespace ConsoleApp4
 							game.PrepareLevel1();
 							game.Level5();
 							int turn = 0;
-							string[] lvl1 = new string[] { " ", "\t", " ", "\t", "B" };
 							do
 							{
 								Console.WriteLine("Хід - " + turn);
@@ -346,14 +322,8 @@ namespace ConsoleApp4
 								game.Eat(ribka1 - 1, ribka2 - 1);
 								turn++;
 								game.Level5();
-								if (game.level1.Equals(lvl1))
-								{
-									Console.WriteLine("Рівень пройдено!");
-									break;
-								}
 
-							} while (turn < 5);
-
+							} while (turn < 10);
 
 						}
                         else
@@ -361,10 +331,8 @@ namespace ConsoleApp4
 							Console.WriteLine("ERROR!!!");
 							break;
                         }
-				
 
 					}
-
 					x = 0;
                 }
 				else if (x == 0)
